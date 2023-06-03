@@ -1,0 +1,16 @@
+button {
+  width: 80px;
+  margin-left: 15px;
+  font-size: xx-small;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5px;
+}
+
+.item::before {
+  content: '•';
+  margin-right: 5px;
+}
