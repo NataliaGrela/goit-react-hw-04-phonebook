@@ -30,6 +30,10 @@ const App = () => {
     }
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
+
   const handleFilter = filter => {
     setFilter(filter);
   };
@@ -44,7 +48,6 @@ const App = () => {
           number: number,
         },
       ];
-      localStorage.setItem('contacts', JSON.stringify(newContacts));
       setContacts(newContacts);
     } else {
       alert(`${name} is already in contacts`);
@@ -56,9 +59,6 @@ const App = () => {
     const contactIndex = contactsToDelete.findIndex(item => item.id === id);
     contactsToDelete.splice(contactIndex, 1);
     setContacts(contactsToDelete);
-    // console.log(contacts, contactIndex);
-    localStorage.removeItem('contacts');
-    localStorage.setItem('contacts', JSON.stringify(contactsToDelete));
   };
 
   const contactExists = () => {
